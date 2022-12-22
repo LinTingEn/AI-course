@@ -6,7 +6,6 @@ category: [Lecture]
 tags: [jekyll, ai]
 ---
 
-###組員：黃建彰、林廷恩
 Pose Estimation includes Applications, Body Pose, Head Pose, Hand Pose , Object Pose.
 
 ---
