@@ -8,11 +8,6 @@ tags: [jekyll, ai]
 
 My Project
 
----
-
-
-
-
 ### 專題描述
 
 
