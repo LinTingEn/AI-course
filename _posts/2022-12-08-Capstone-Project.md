@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Capstone-Project
-author: [Ting-En Lin]
+author: [Charles Huang and Ting-En Lin]
 category: [Lecture]
 tags: [jekyll, ai]
 ---
