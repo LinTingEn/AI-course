@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Capstone-Project
-author: [Lin Ting-En]
+author: [Ting-En Lin]
 category: [Lecture]
 tags: [jekyll, ai]
 ---
