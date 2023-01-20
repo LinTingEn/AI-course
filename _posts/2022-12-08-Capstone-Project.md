@@ -10,6 +10,7 @@ tags: [jekyll, ai]
 
 ### 專題描述
 我們希望藉由YOLO實現判斷停車狀況。<br>
+[kaggle:parking detection](https://www.kaggle.com/code/ulysses1103/parked-detection)<br>
 
 ### 專題實作步驟概述
 1. 拍出各種停車狀況的照片。<br>
@@ -51,25 +52,6 @@ names: ['legal', 'illegal']  # class names
 
 
 ### 辨識結果
----
-
-***train***
-![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/train.png?raw=true)
-
-
-
-
-### kaggle實作
----
-
-[kaggle:parking detection](https://www.kaggle.com/code/ulysses1103/parked-detection)<br>
-
-
-[yolov5](https://github.com/ultralytics/yolov5)
-### 辨識結果
----
-
-
 | image num | epoch | results | description |see results on kaggle |
 | --: | -- | -- | --: | --|
 | 15 | 100 |  ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/num15.png?raw=true) | labelled wrong<br>這些應該被貼上```illegal```而不適```legal``` |version 8 | 
@@ -79,6 +61,9 @@ names: ['legal', 'illegal']  # class names
 | 15(fine-tuned) | 160 | ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/epoch160_2.png?raw=true)| 和epoch 80結果一樣 | version 10| 
 |44|80|![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/version11.png?raw=true)||version 11|
 |44|160|![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/version13.png?raw=true)|幾乎成功!|version13|
+
+
+
 <br>
 
 >quote
@@ -87,6 +72,18 @@ names: ['legal', 'illegal']  # class names
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+***train***
+![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/train.png?raw=true)
+### kaggle實作
+---
+
+[kaggle:parking detection](https://www.kaggle.com/code/ulysses1103/parked-detection)<br>
+
+
+[yolov5](https://github.com/ultralytics/yolov5)
+
 ### ARCHIVE棄存
 ---
 在資料夾data放進images 和 labels
