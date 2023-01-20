@@ -22,12 +22,8 @@ tags: [jekyll, ai]
 首先我們得先準備足夠的訓練資料，在自身活動範圍附近尋找適當的汽、機車停車狀況，找尋適當的角度進行拍攝，接著標註每一筆數據。<br><br>
 
 **手動添加標籤**<br><br>
-
-資料標註工具參考[郭子仁老師的網頁](https://rkuo2000.github.io/AI-course/lecture/2022/10/13/Object-Detection-Exercises.html)<br><br>
-
-![](https://github.com/jz-huanng/yolov5/blob/master/data/images/train/10.jpg?raw=true)<br>
-
-![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/explain1.png?raw=true)<br>
+以這張圖為例，可以看到圖中兩台車一台車是停在格子裡，一台車則是隨意停靠路邊。分別對左邊的貼標籤```legal```以及右邊的```illegal```<br>
+![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/labels.png?raw=true)<br>
 
 **kaggle的部分**
  <br>
@@ -36,9 +32,6 @@ tags: [jekyll, ai]
  git clone https://github.com/jz-huanng/yolov5
  
  ```
- 
- 在資料夾data放進images 和 labels
- ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/directory.png?raw=true)
 
 **custom yaml file**
 
@@ -55,10 +48,6 @@ nc: 2  # number of classes
 names: ['legal', 'illegal']  # class names
 ```
 
-注意的是yaml檔的位址應該和train.py同一層資料夾。<br>
-
-放錯位址造成的結果:
-![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/yaml_in_wrong_sdirectory.png?raw=true)
 
 
 ### 辨識結果
@@ -75,14 +64,21 @@ names: ['legal', 'illegal']  # class names
 
 [kaggle:parking detection](https://www.kaggle.com/code/ulysses1103/parked-detection)<br>
 
-### 參考資料
----
-
-[Image Annotation](https://rkuo2000.github.io/AI-course/lecture/2022/10/13/Object-Detection-Exercises.html
-)<br><br>
 
 [yolov5](https://github.com/ultralytics/yolov5)
+### 辨識結果
+---
 
+
+| image num | epoch | results | description |see results on kaggle |
+| --: | -- | -- | --: | --|
+| 15 | 100 |  ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/num15.png?raw=true) | labelled wrong<br>這些應該被貼上```illegal```而不適```legal``` |version 8 | 
+| 15(fine-tuned) | 80 | ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/fine-tune.png?raw=true)<br>![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/labels2.png?raw=true) | labelled imprfect 但是不是機器學到方格? | version 9| 
+| 15(fine-tuned) | 80 | ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/no_result.png?raw=true)| 沒有辨識出來 | version 9| 
+| 15(fine-tuned) | 160 | ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/epoch160.png?raw=true)| 目前下來唯一一張有辨識到illegal | version 10| 
+| 15(fine-tuned) | 160 | ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/epoch160_2.png?raw=true)| 和epoch 80結果一樣 | version 10| 
+|44|80|![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/version11.png?raw=true)||version 11|
+|44|160|![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/parking-detection/version13.png?raw=true)|幾乎成功!|version13|
 <br>
 
 >quote
@@ -93,10 +89,8 @@ names: ['legal', 'illegal']  # class names
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 ### ARCHIVE棄存
 ---
-我們希望藉由yolo實現停車格空位的辨識<br>
-我們要客製化自己的訓練資料，同時**避免偵測汽車、機車等非預期結果**。理想上是偵測停車格上是否有汽機車佔位。<br>
-每一次框選都要**框住白色方框**，在依據是否停有車來選擇不同的標籤```empty``` 或 ```parked ```。有些照片中**機車並非出現在白色方框內不應該被標註出來**。<br><br>
-
+在資料夾data放進images 和 labels
+ ![](https://github.com/jz-huanng/AI-course/blob/gh-pages/images2/directory.png?raw=true)
 
 **imperfect outcome**
 
@@ -104,5 +98,11 @@ names: ['legal', 'illegal']  # class names
 
 結果不理想原因應該在於蒐集資料的角度
 
+### 參考資料
+[Image Annotation](https://rkuo2000.github.io/AI-course/lecture/2022/10/13/Object-Detection-Exercises.html
+)<br><br>
+
+[yolov5](https://github.com/ultralytics/yolov5)
 
 *This site was last updated {{ site.time | date: "%B %d, %Y" }}.*
+
